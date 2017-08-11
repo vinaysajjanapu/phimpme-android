@@ -104,6 +104,15 @@ extern "C" {
         Mat &src = *(Mat*)inpAddr;
         Mat &dst = *(Mat*)outAddr;
 
+        /*
+        vector<Mat> ch_src(4),ch_dst(4);
+        Mat alpha;
+        split(src,ch_src);
+        alpha = ch_src[3];*/
+        Mat ch_src[4],ch_dst[4];
+        split(src,ch_src);
+        cvtColor(src,src,CV_BGRA2BGR);
+
         switch (mode){
             case 0:
                 adjustBrightness(src, dst, val);
@@ -132,6 +141,11 @@ extern "C" {
             default:
                 break;
         }
+
+        cvtColor(dst,dst,CV_BGR2BGRA);
+        split(dst,ch_dst);
+        ch_dst[3] = ch_src[3];
+        merge(ch_dst,4,dst);
 
     }
 
