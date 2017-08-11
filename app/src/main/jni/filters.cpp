@@ -53,7 +53,7 @@ void gammaCorrection(Mat &src, Mat &dst) {
 void applyBW(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     float opacity = val * 0.01f;
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     uchar grey, r, g, b,bri;
 
@@ -77,7 +77,7 @@ void applyBW(cv::Mat &src, cv::Mat &dst, int val) {
 void applySajuno(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double op = 0.5 + 0.35 * val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     uchar r, g, b;
     int val1;
@@ -103,7 +103,7 @@ void applyManglow(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y, i;
     double opacity = 0.01 * val;
     double bri_op = 0.4 + 0.0035 * val;
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
 
     dst = Mat::zeros(src.size(), src.type());
     uchar ri, gi, bi, r, g, b, bri;
@@ -147,7 +147,7 @@ void applyPalacia(cv::Mat &src, cv::Mat &dst, int val) {
 
     int clip = 1 + (int) (val * 0.04);
 
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
 
     Mat gamma_mat;
@@ -172,7 +172,7 @@ void applyPalacia(cv::Mat &src, cv::Mat &dst, int val) {
 void applyAnax(cv::Mat &src, cv::Mat &dst, int val) {
     register int i, j, x, y, tr, tb, tg;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+  //  cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     register uchar sepia, red, green, blue;
     short int overlayLut[256][256];
@@ -226,7 +226,7 @@ void applyAnax(cv::Mat &src, cv::Mat &dst, int val) {
 void applySepia(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+  //  cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     uchar sepia;
     uchar r, g, b;
@@ -256,7 +256,7 @@ void applySepia(cv::Mat &src, cv::Mat &dst, int val) {
 void applyAnsel(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+//    cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     uchar grey, r, g, b, eff;
     for (y = 0; y < src.rows; y++) {
@@ -279,7 +279,7 @@ void applyAnsel(cv::Mat &src, cv::Mat &dst, int val) {
 
 void applyHistEq(cv::Mat &src, cv::Mat &dst, int val) {
     float opacity = 0.01f * val;
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     vector<Mat> planes(3), planes1(3);
     split(src, planes);
@@ -298,7 +298,7 @@ void applyHistEq(cv::Mat &src, cv::Mat &dst, int val) {
 void applyThreshold(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2GRAY);
+//    cvtColor(src, src, CV_BGRA2GRAY);
     dst = Mat::zeros(src.size(), src.type());
     int thres = 220 - (int) (opacity * 190);
     uchar color;
@@ -315,7 +315,7 @@ void applyThreshold(cv::Mat &src, cv::Mat &dst, int val) {
 void applyGrain(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+ //   cvtColor(src, src, CV_BGRA2BGR);
     dst = src.clone();
     time_t t;
     srand((unsigned) time(&t));
@@ -340,7 +340,7 @@ void applyGrain(cv::Mat &src, cv::Mat &dst, int val) {
 void applyCyano(cv::Mat &src, cv::Mat &dst, int val) {
     register int x, y;
     double opacity = val / 100.0;
-    cvtColor(src, src, CV_BGRA2BGR);
+//    cvtColor(src, src, CV_BGRA2BGR);
     dst = Mat::zeros(src.size(), src.type());
     register uchar grey, r, g, b;
     for (y = 0; y < src.rows; y++) {
